@@ -1,0 +1,30 @@
+#!/bin/bash
+# called from in the scripts directory:
+#  - prior to  building
+#  - in  starting a slurm job to run the model
+# Convention being used:
+# a case corresponds to a specific build of a model (defined compiler options, opt file, code...)
+# a run uses that build
+# In testing there will be many runs for one case to explore SLURM options
+# such as number of nodes.
+
+# the script create_case copies tjhis and sets it up
+
+module load PrgEnv-gnu
+module load petsc
+module load hypre
+module load cray-hdf5-parallel
+module load cray-netcdf-hdf5parallel
+
+
+
+export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+
+# account - this is for the ecse... replace by  your project one.
+
+export HECACC=ecseab06-guest
+
+export MITGCM_OPT=/work/n02/shared/mjmn02/AmundIce/MITgcm/MITgcm
+# insert path below
+export MITGCM_OPT=dev_linux_amd64_cray_archer2
+export PATH=$MITGCM_ROOTDIR/tools:$PATH
