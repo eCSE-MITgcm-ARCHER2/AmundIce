@@ -1,0 +1,12 @@
+ &CTRL_NML
+ doPackDiag = .FALSE.,
+ ctrlUseGen=.TRUE.,
+ /
+ &CTRL_PACKNAMES
+ /
+ &CTRL_NML_GENARR
+# xx_gentim2d_period(1) = 311040000
+# genarr2dPrecond = 5 200
+# xx_gentim2d_file(1)   = 'xx_gentim2d1',
+# genarr2dPrecond = 5 200
+ /
