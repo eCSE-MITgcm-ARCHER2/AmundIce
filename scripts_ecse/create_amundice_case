@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Script to create a case directory and copy script and code files into it.
+
+if [ $# -ne 1 ]; 
+
+    then echo "Please give directory of the case to be created"
+    exit
+fi
+
+if [ -d $1 ]
+then
+   echo "please delete or set a different directory path" $1
+   exit
+fi
+
+CASEDIR=$1
+
+. ./case_setup
+mkdir -p $CASEDIR/code $CASEDIR/scripts $CASEDIR/input_ad
+
+cp --preserve=timestamps $AMUND_ECSE/code_ecse/*  $CASEDIR/code
+cp --preserve=timestamps $AMUND_ECSE/scripts_ecse/*   $CASEDIR/scripts
+cp --preserve=timestamps $AMUND_ECSE/input_ecse/*   $CASEDIR/input_ad
+
+
