@@ -12,9 +12,9 @@ Its suggested you have a directory tree in /work/..... (Not /home/..., as this i
 
 # Downloads
 Download MITgcm and then the Singularity container for OpenAd and this github:
-> Create directory ./MITgcm and cd into it then
+- Create directory ./MITgcm and cd into it then
 >  git clone git@github.com:dngoldberg/MITgcm.git 
-> Create directory ./Singularity and cd into it then
+- Create directory ./Singularity and cd into it then
 >  singularity pull library://jahn/default/openad:latest
 
 
