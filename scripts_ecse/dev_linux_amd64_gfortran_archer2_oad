@@ -16,16 +16,15 @@ GET_FC_VERSION="--version"
 CHECK_FOR_LAPACK=t
 FC_CHECK=f
 
-INCLUDES='-I${NETCDF_DIR}/include -I/opt/cray/pe/mpich/8.1.4/ofi/gnu/9.1/include'
-LIBS='-L${NETCDF_DIR}/lib -L/opt/cray/pe/mpich/8.1.4/ofi/gnu/9.1/lib'
+#INCLUDES='-I${NETCDF_DIR}/include -I${CRAY_MPICH_DIR}/include'
 
-### DNG ADDED THESE LINES
-#INCLUDES="$INCLUDES -I/work/n02/shared/MITgcm/PETSc/petsc/include/petsc/finclude"
 
-INCLUDES="$INCLUDES -I/work/n02/n02/dngoldbe/petsc/include/petsc"
-INCLUDES="$INCLUDES -I/work/n02/n02/dngoldbe/petsc/include"
+#INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
+#INCLUDES="$INCLUDES -I${PETSC_DIR}/include"
+#LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
 
-LIBS="$LIBS -L/work/n02/n02/dngoldbe/petsc/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
+#LIBS=$LD_LIBRARY_PATH
+#LIBS="$LIBS -L/work/y07/shared/libs/work/n02/n02/dngoldbe/petsc/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
 ###
 
 NOOPTFLAGS='-O0'
@@ -34,7 +33,7 @@ NOOPTFILES=''
 FFLAGS='-fallow-argument-mismatch'
 
 if test "x${MITGCM_FFLAGS}" != "x"; then
-	            # set flags in case_setup
+	            # set flags in case_setup to ease testing
 
             FOPTIM=$MITGCM_FFLAGS
 

@@ -7,11 +7,12 @@
 
 # Empty the run directory - but first make sure it exists!
 if [ -d "../run_ad" ]; then
-  cd ../run_ad
-  rm -rf *
+ echo run_ad exists - (re)move it first
+  exit
 else
-  echo 'There is no run directory'
-  exit 1
+  echo "make run_ad"
+  mkdir ../run_ad
+  cd ../run_ad
 fi
 
 echo "GOT HERE PREPARE"

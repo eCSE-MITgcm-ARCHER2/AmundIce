@@ -9,10 +9,16 @@
 module load PrgEnv-gnu
 module load petsc
 module load hypre
+module load mumps
+module load scotch
+# not knownmodule load scotcherr
+module load parmetis
+module load metis
+module load superlu
+module load superlu-dist
+
 module load cray-hdf5-parallel
 module load cray-netcdf-hdf5parallel
-
-export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 
 # account - this is for the ecse... replace by  your project one.
 
@@ -20,7 +26,9 @@ export HECACC=ecseab06-guest
 
 # correct the  paths below
 
+export AMUND_ECSE=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce
+export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity
 export MITGCM_ROOTDIR=/work/n02/shared/mjmn02/AmundIce/MITgcm/MITgcm
-export MITGCM_OPT=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce/scripts_ecse/dev_linux_amd64_cray_archer2_oad
+#export AMUND_OPT=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce/scripts_ecse/dev_linux_amd64_cray_archer2_oad
 
 export PATH=$MITGCM_ROOTDIR/tools:$PATH

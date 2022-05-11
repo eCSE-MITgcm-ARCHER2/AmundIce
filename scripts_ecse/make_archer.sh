@@ -1,17 +1,9 @@
+#!/bin/bash
 
-module load PrgEnv-gnu
-module swap cray-mpich  cray-mpich/8.1.4
-module load cray-hdf5-parallel/1.12.0.3
-module load cray-netcdf-hdf5parallel/4.7.4.3
+# run in case's script directory
+. ./case_setup
 
-###### WILL NEED TO CHANGE ############
-PETSCDIR=/work/n02/n02/dngoldbe/petsc/
-
-
-# module load nco/4.9.6-gcc-10.1.0
-# module load ncview/ncview-2.1.7-gcc-10.1.0
-
-export LD_LIBRARY_PATH=/work/n02/n02/dngoldbe/petsc/lib:$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$CRAY_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 
 if [ -d "../build_ad" ]; then
   cd ../build_ad
@@ -23,17 +15,17 @@ else
 fi
 
 
-cd $ROOTDIR
+cd $MITGCM_ROOTDIR
 git checkout branch_streamice_updates
 cd $OLDPWD
 
-make CLEAN
+# why was this here - new directory.... make CLEAN
 
 ###### WILL NEED TO CHANGE ############
-sing_str="-B $PWD:$HOME /work/n02/n02/dngoldbe/oad_sing/openad.sif"
+sing_str="-B $PWD:$HOME $AMUND_OAD"
 
-$ROOTDIR/tools/genmake2 -mods='../code_ecse' -of=../scripts_ecse/dev_linux_amd64_cray_archer2_oad -oad -mpi --oadsingularity $sing_str
-ln -s $PETSCDIR/include/*.mod .
-echo $LD_LIBRARY_PATH
+$MITGCM_ROOTDIR/tools/genmake2 -mods='../code' -of=../scripts/dev_linux_amd64_gfortran_archer2_oad -oad -mpi --oadsingularity $sing_str
+#ln -s $PETSCDIR/include/*.mod .
+#echo $LD_LIBRARY_PATH
 make adAll
 
