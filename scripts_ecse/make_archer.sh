@@ -16,7 +16,9 @@ fi
 
 
 cd $MITGCM_ROOTDIR
-git checkout branch_streamice_updates
+git checkout streamic_petsc_3_8_update
+# see https://github.com/dngoldberg/MITgcm/tree/streamic_petsc_3_8_update
+
 cd $OLDPWD
 
 # why was this here - new directory.... make CLEAN
