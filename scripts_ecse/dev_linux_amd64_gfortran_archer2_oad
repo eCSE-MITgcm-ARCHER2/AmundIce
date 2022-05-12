@@ -20,6 +20,7 @@ INCLUDES='-I${NETCDF_DIR}/include -I${CRAY_MPICH_DIR}/include'
 
 
 INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
+# /finclude"
 INCLUDES="$INCLUDES -I${PETSC_DIR}/include -I${MUMPS_DIR}/include -I${METIS_DIR}/include -I${SCOTCH_DIR}/include -I${SUPERLU_DIR}/include"
 INCLUDES="$INCLUDES -I${SUPERLU_DIST_DIR}/include -I${PARMETIS_DIR}/include -I${PARMETIS_DIR}/include"
 LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'

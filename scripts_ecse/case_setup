@@ -27,8 +27,9 @@ export HECACC=ecseab06-guest
 # correct the  paths below
 
 export AMUND_ECSE=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce
-export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity
+# latest export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity/openad_latest.sif
+export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity/openad.sif
 export MITGCM_ROOTDIR=/work/n02/shared/mjmn02/AmundIce/MITgcm/MITgcm
-#export AMUND_OPT=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce/scripts_ecse/dev_linux_amd64_cray_archer2_oad
 
-export PATH=$MITGCM_ROOTDIR/tools:$PATH
+# try without this - it causes "as" to be overridden - use explicit path in calling genmake in make-archer.sh
+# export PATH=$MITGCM_ROOTDIR/tools:$PATH
