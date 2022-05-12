@@ -20,11 +20,15 @@ INCLUDES='-I${NETCDF_DIR}/include -I${CRAY_MPICH_DIR}/include'
 
 
 INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
-INCLUDES="$INCLUDES -I${PETSC_DIR}/include"
+INCLUDES="$INCLUDES -I${PETSC_DIR}/include -I${MUMPS_DIR}/include -I${METIS_DIR}/include -I${SCOTCH_DIR}/include -I${SUPERLU_DIR}/include"
+INCLUDES="$INCLUDES -I${SUPERLU_DIST_DIR}/include -I${PARMETIS_DIR}/include -I${PARMETIS_DIR}/include"
 LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
+#LIBS="$LIBS -L${PETSC_DIR}/lib/petsc"
+LIBS="$LIBS -L${PETSC_DIR}/lib -L${MUMPS_DIR}/lib -L${METIS_DIR}/lib -L${SCOTCH_DIR}/lib -L${SUPERLU_DIR}/lib"
+LIBS="$LIBS -L${SUPERLU_DIST_DIR}/lib -L${PARMETIS_DIR}/lib -L${PARMETIS_DIR}/lib"
 
 #LIBS=$LD_LIBRARY_PATH
-LIBS="$LIBS -L${PETSC_DIR}/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
+LIBS="$LIBS  -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
 ###
 
 NOOPTFLAGS='-O0'
