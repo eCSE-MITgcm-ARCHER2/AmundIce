@@ -16,15 +16,15 @@ GET_FC_VERSION="--version"
 CHECK_FOR_LAPACK=t
 FC_CHECK=f
 
-#INCLUDES='-I${NETCDF_DIR}/include -I${CRAY_MPICH_DIR}/include'
+INCLUDES='-I${NETCDF_DIR}/include -I${CRAY_MPICH_DIR}/include'
 
 
-#INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
-#INCLUDES="$INCLUDES -I${PETSC_DIR}/include"
-#LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
+INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
+INCLUDES="$INCLUDES -I${PETSC_DIR}/include"
+LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
 
 #LIBS=$LD_LIBRARY_PATH
-#LIBS="$LIBS -L/work/y07/shared/libs/work/n02/n02/dngoldbe/petsc/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
+LIBS="$LIBS -L${PETSC_DIR}/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
 ###
 
 NOOPTFLAGS='-O0'
