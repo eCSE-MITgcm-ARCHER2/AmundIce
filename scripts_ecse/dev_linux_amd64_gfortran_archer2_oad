@@ -23,13 +23,21 @@ INCLUDES="$INCLUDES -I${PETSC_DIR}/include/petsc"
 # /finclude"
 INCLUDES="$INCLUDES -I${PETSC_DIR}/include -I${MUMPS_DIR}/include -I${METIS_DIR}/include -I${SCOTCH_DIR}/include -I${SUPERLU_DIR}/include"
 INCLUDES="$INCLUDES -I${SUPERLU_DIST_DIR}/include -I${PARMETIS_DIR}/include -I${PARMETIS_DIR}/include"
-LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
-#LIBS="$LIBS -L${PETSC_DIR}/lib/petsc"
-LIBS="$LIBS -L${PETSC_DIR}/lib -L${MUMPS_DIR}/lib -L${METIS_DIR}/lib -L${SCOTCH_DIR}/lib -L${SUPERLU_DIR}/lib"
-LIBS="$LIBS -L${SUPERLU_DIST_DIR}/lib -L${PARMETIS_DIR}/lib -L${PARMETIS_DIR}/lib"
+
+# ftn --cray-print-opts
+# shows have most already...
+#LIBS='-L${NETCDF_DIR}/lib -L${CRAY_MPICH_DIR}/include/lib'
+
+#LIBS="$LIBS -L${PETSC_DIR}/lib -lpetsc  -L${MUMPS_DIR}/lib -ldmumps_gnu_mpi -lsmumps_gnu_mpi -lzmumps_gnu_mpi -lmumps_common_gnu_mpi"
+#LIBS="$LIBS -L${METIS_DIR}/lib -lmetis_gnu  -L${SCOTCH_DIR}/lib -lptscotch -lscotch -lptscotcherr -lscotcher -L${SUPERLU_DIR}/lib -lsuperlu"
+#LIBS="$LIBS -L${SUPERLU_DIST_DIR}/lib -lsuperlu_dist -L${PARMETIS_DIR}/lib -lparmetis -lmetis -L${HYPRE_DIR}/lib -lHYPRE_gnu_mpi"
+#LIBS="$LIBS -lm -lstdc++"
+LIBS="-L/work/y07/shared/libs/core/superlu-dist/6.4.0/GNU/9.3/lib -L/work/y07/shared/libs/core/superlu/5.2.2/GNU/9.3/lib -L/work/y07/shared/libs/core/metis/5.1.0/GNU/9.3/lib -L/work/y07/shared/libs/core/parmetis/4.0.3/GNU/9.3/lib -L/work/y07/shared/libs/core/scotch/6.1.0/GNU/9.3/lib -L/work/y07/shared/libs/core/mumps/5.3.5/GNU/9.3/lib -L/work/y07/shared/libs/core/hypre/2.18.0/GNU/9.3/lib -L/work/y07/shared/libs/core/petsc/3.14.2/GNU/9.3/lib -L/opt/cray/pe/hdf5-parallel/1.12.0.3/gnu/9.1/lib -L/opt/cray/pe/mpich/8.1.4/ofi/gnu/9.1/lib -L/opt/cray/pe/libsci/21.04.1.1/GNU/9.1/x86_64/lib -L/opt/cray/pe/netcdf-hdf5parallel/4.7.4.3/gnu/9.1/lib -L/opt/cray/xpmem/2.2.40-7.0.1.0_2.7__g1d7a24d.shasta/lib64 -Wl,--as-needed,-lhdf5_hl_parallel,--no-as-needed -Wl,--as-needed,-lhdf5_parallel,--no-as-needed -Wl,--as-needed,-lhdf5hl_fortran_parallel,--no-as-needed -Wl,--as-needed,-lhdf5_fortran_parallel,--no-as-needed -Wl,--as-needed,-lnetcdf,--no-as-needed -Wl,--as-needed,-lnetcdff,--no-as-needed -Wl,--as-needed,-lsuperlu_dist_gnu_mpi,--no-as-needed -Wl,--as-needed,-lstdc++,--no-as-needed -Wl,--as-needed,-lsuperlu_gnu,--no-as-needed -Wl,--as-needed,-lmetis_gnu,--no-as-needed -Wl,--as-needed,-lparmetis_gnu_mpi,--no-as-needed -Wl,--as-needed,-lesmumps_gnu,--no-as-needed -Wl,--as-needed,-lptesmumps_gnu_mpi,--no-as-needed -Wl,--as-needed,-lptscotchparmetis_gnu_mpi,--no-as-needed -Wl,--as-needed,-lptscotch_gnu_mpi,--no-as-needed -Wl,--as-needed,-lptscotcherr_gnu_mpi,--no-as-needed -Wl,--as-needed,-lscotchmetis_gnu,--no-as-needed -Wl,--as-needed,-lscotch_gnu,--no-as-needed -Wl,--as-needed,-lscotcherr_gnu,--no-as-needed -Wl,--as-needed,-lsmumps_gnu_mpi,--no-as-needed -Wl,--as-needed,-ldmumps_gnu_mpi,--no-as-needed -Wl,--as-needed,-lcmumps_gnu_mpi,--no-as-needed -Wl,--as-needed,-lzmumps_gnu_mpi,--no-as-needed -Wl,--as-needed,-lmumps_common_gnu_mpi,--no-as-needed -Wl,--as-needed,-lpord_gnu_mpi,--no-as-needed -Wl,--as-needed,-lHYPRE_gnu_mpi,--no-as-needed -lpetsc -Wl,--as-needed,-lsci_gnu_82_mpi,--no-as-needed -Wl,--as-needed,-lsci_gnu_82,--no-as-needed -ldl -Wl,--as-needed,-lmpifort_gnu_91,--no-as-needed -Wl,--as-needed,-lmpi_gnu_91,--no-as-needed -lxpmem -lm -lstdc++"
+
+# can we just use the CRAY LIBRAY PATH and wrapper?
 
 #LIBS=$LD_LIBRARY_PATH
-LIBS="$LIBS  -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
+#LIBS="$LIBS  -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -lsmumps -lzmumps -lmumps_common -lptesmumps -lesmumps -lpord -lsuperlu -lsuperlu_dist -lptscotch -lscotch -lptscotcherr -lscotcherr -lparmetis -lmetis -lm -lstdc++"
 ###
 
 NOOPTFLAGS='-O0'
