@@ -1,11 +1,13 @@
 #!/bin/sh
-#SBATCH --time=12:00:00
+# #SBATCH --time=12:00:00
+#SBATCH --time=00:10:00
 #SBATCH --exclusive
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=90
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=standard
-#SBATCH --qos=standard
+#SBATCH --qos=short
+# SBATCH --qos=standard
 ##SBATCH --reservation=shortqos
 
 
@@ -15,16 +17,6 @@
 
 
 echo "GOT HERE RUN REPEAT"
-#module load leave_time
-#module load intel-mpi-18
-#module load mpt/2.22
-#module load intel-compilers-18
-#module load intel-compilers-19
-
-#module restore /etc/cray-pe.d/PrgEnv-gnu
-#module swap cray-mpich  cray-mpich/8.1.3
-#module load cray-hdf5-parallel/1.12.0.2
-#module load cray-netcdf-hdf5parallel/4.7.4.2
 
 module load PrgEnv-gnu
 module load cray-hdf5-parallel
@@ -33,7 +25,7 @@ module load cray-netcdf-hdf5parallel
 cd $SLURM_SUBMIT_DIR/../run_ad
 
 export OMP_NUM_THREADS=1
-srun --distribution=block:block --hint=nomultithread ./mitgcmuv_ad  > out.txt 2> err.txt
+srun --distribution=block:block --hint=nomultithread ./mitgcmuv_ad  # > out.txt 2> err.txt
 echo not yet doing rm oad_cp*
 
 exit

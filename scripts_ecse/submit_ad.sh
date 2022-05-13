@@ -10,9 +10,12 @@ JOBNO=00
 
 # record start times
 TIMEQSTART="$(date +%s)"
-echo Start-time `date` >> ../run_forward/times
+#echo Start-time `date` >> ../run_forward/times
+echo Start-time `date` >> ../run_ad/times
 
-./prepare_run_ad.sh
+echo not running  ./prepare_run_ad.sh
+echo permit edits after user runs prepare.... and before the sbatch.
+echo so please run prepare.sh then this, both from scripts directory.
 
 echo DOTSON_$JOBNO
 echo $JOBNO

@@ -7,15 +7,15 @@
 # In testing there will be many runs for one case to explore SLURM options
 
 module load PrgEnv-gnu
-module load petsc
-module load hypre
-module load mumps
-module load scotch
+#module load petsc
+#module load hypre
+#module load mumps
+#module load scotch
 # not knownmodule load scotcherr
-module load parmetis
-module load metis
-module load superlu
-module load superlu-dist
+#module load parmetis
+#module load metis
+#module load superlu
+#module load superlu-dist
 
 module load cray-hdf5-parallel
 module load cray-netcdf-hdf5parallel
@@ -30,6 +30,4 @@ export AMUND_ECSE=/work/n02/shared/mjmn02/AmundIce/eCSE-archer2-AmundIce
 # latest export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity/openad_latest.sif
 export AMUND_OAD=/work/n02/shared/mjmn02/AmundIce/Singularity/openad.sif
 export MITGCM_ROOTDIR=/work/n02/shared/mjmn02/AmundIce/MITgcm/MITgcm
-
-# try without this - it causes "as" to be overridden - use explicit path in calling genmake in make-archer.sh
-# export PATH=$MITGCM_ROOTDIR/tools:$PATH
+export MY_PETSC_DIR=/work/n02/shared/mjmn02/AmundIce/TPSL/GNU

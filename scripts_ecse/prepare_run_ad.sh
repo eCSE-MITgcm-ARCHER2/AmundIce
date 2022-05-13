@@ -7,7 +7,7 @@
 
 # Empty the run directory - but first make sure it exists!
 if [ -d "../run_ad" ]; then
- echo run_ad exists - (re)move it first
+  echo run_ad exists - remove it first
   exit
 else
   echo "make run_ad"
