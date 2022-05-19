@@ -1,12 +1,13 @@
 # Instructions to run AMUND_ICE
 
 ## Downloads
-Download MITgcm and then the Singularity container for OpenAd and this github:
+Download MITgcm 
 - Create directory ./MITgcm and cd into it then
 >  git clone git@github.com:dngoldberg/MITgcm.git 
+
+Download the Singularity container for OpenAd:
 - Create directory ./Singularity and cd into it then
 >  singularity pull library://jahn/default/openad:latest
-
 
  Download/copy files for AmundIce:
 > git clone git@github.com:eCSE-MITgcm-ARCHER2/eCSE-archer2-AmundIce.git
