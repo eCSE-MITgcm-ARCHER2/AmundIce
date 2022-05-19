@@ -30,12 +30,7 @@ NOOPTFILES=''
 
 FFLAGS='-fallow-argument-mismatch'
 
-if test "x${MITGCM_FFLAGS}" != "x"; then
-	            # set flags in case_setup
-
-            FOPTIM=$MITGCM_FFLAGS
-
-elif test "x$IEEE" = x ; then   #- with optimisation:
+if test "x$IEEE" = x ; then   #- with optimisation:
     FOPTIM='-O3'
 else
     if test "x$DEVEL" = x ; then  #- no optimisation + IEEE :
