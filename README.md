@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/490702234.svg)](https://zenodo.org/badge/latestdoi/490702234)
+
 # AmundIce
 AmundIce calculates adjoint sensitivities from a 20-year run of an amundsen sea configuration of the MITgcm STREAMICE package.
 The repository has files for running on Archer2
