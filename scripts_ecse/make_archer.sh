@@ -56,7 +56,6 @@ fi
 
 
 $MITGCM_ROOTDIR/tools/genmake2 -mods='../code' -of=../scripts/dev_linux_amd64_gfortran_archer2_oad -oad -mpi --oadsingularity="$sing_str"
-ln -s $MY_PETSC_DIR/include/*.mod .
 
 echo ----------------------LD_LIBRARY_PATH --------------------
 echo $LD_LIBRARY_PATH

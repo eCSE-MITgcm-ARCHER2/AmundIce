@@ -28,7 +28,7 @@ LIBS="$LIBS -L${MY_PETSC_DIR}/lib -lpetsc -lHYPRE -lcmumps -ldmumps -lesmumps -l
 NOOPTFLAGS='-O0'
 NOOPTFILES=''
 
-FFLAGS='-fallow-argument-mismatch'
+FFLAGS='-fallow-argument-mismatch -I${MY_PETSC_DIR}/include'
 
 if test "x$IEEE" = x ; then   #- with optimisation:
     FOPTIM='-O3'
