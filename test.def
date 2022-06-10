@@ -1,0 +1,74 @@
+Bootstrap: docker
+From: ubuntu:18.04
+Stage: build
+
+%files
+% can get here: http://www.mcs.anl.gov/~utke/OpenAD_tars/493/OpenAD_2014-03-15.tgz
+    openad.tgz openad.tgz 
+
+%environment
+
+%post
+    export XAIFSCHEMA_BASE=/OpenAD/xaif
+    export OPEN64_BASE=/OpenAD/Open64
+    export LD_LIBRARY_PATH=/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/whirl2f:/lustre/sw/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64:/lustre/sw/gcc/6.3.0/lib64:/lustre/sw/gcc/6.3.0/lib:/opt/hpe/hpc/mpt/mpt-2.22/lib
+    export ANGEL_BASE=/OpenAD/angel
+    export XAIFBOOSTER_BASE=/OpenAD/xaifBooster
+    export XERCESCROOT=/OpenAD/xercesc/x86_64-Linux
+    export OPENADFORTTK=/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux
+    export ANGELROOT=/OpenAD/angel
+    export OPENADFORTTKROOT=/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux
+    export REVOLVEF9XROOT=/OpenAD/RevolveF9X
+    export XERCESC_BASE=/OpenAD/xercesc
+    export OPENAD_BASE=/OpenAD
+    export BOOSTROOT=/OpenAD/boost
+    export XAIFSCHEMAROOT=/OpenAD/xaif
+    export OPENANALYSIS_BASE=/OpenAD/OpenAnalysis
+    export PWD=/OpenAD
+    export OPEN64ROOT=/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux
+    export OPENANALYSISROOT=/OpenAD/OpenAnalysis/x86_64-Linux
+    export BOOST_BASE=/OpenAD/boost
+    export XAIFBOOSTERROOT=/OpenAD/xaifBooster/..
+    export OPENADPLATFORM=x86_64-Linux
+    export OPENADROOT=/OpenAD
+    export OPENADFORTTK_BASE=/OpenAD/OpenADFortTk
+    export PATH=OpenAD/bin:/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linuxbin:$PATH
+
+    alias ir_b2a='/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/ir_tools/ir_b2a'
+    alias ir_size='/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/ir_tools/ir_size'
+    alias mfef90='/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/crayf90/sgi/mfef90'
+    alias postProcess.py='/OpenAD/OpenADFortTk/tools/SourceProcessing/postProcess.py'
+    alias preProcess.py='/OpenAD/OpenADFortTk/tools/SourceProcessing/preProcess.py'
+    alias sexp2whirl='/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux/bin/sexp2whirl'
+    alias whirl2f='/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/whirl2f/whirl2f'
+    alias whirl2f90='/OpenAD/Open64/osprey1.0/targ_ia64_ia64_linux/whirl2f/whirl2f90'
+    alias whirl2sexp='/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux/bin/whirl2sexp'
+    alias whirl2xaif='/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux/bin/whirl2xaif'
+    alias xaif2whirl='/OpenAD/OpenADFortTk/OpenADFortTk-x86_64-Linux/bin/xaif2whirl'
+
+
+    apt-get -y update
+    apt-get install -y make
+    make --version
+    apt-get install -y python2.7
+    apt-get install -y perl
+    alias gcc='gcc-4.8'
+    alias python='python2.7'
+    ln -s /usr/bin/python2.7 /usr/bin/python
+    
+
+    apt-get install -y gcc-4.8
+    ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
+    apt-get install -y g++-4.8
+    ln -s /usr/bin/gfortran-4.8 /usr/bin/gfortran
+    apt-get install -y gfortran-4.8
+    ln -s /usr/bin/g++-4.8 /usr/bin/g++
+    apt-get install -y cc-4.8
+    apt-get install -y csh
+    tar -xzvf openad.tgz
+    cd OpenAD;
+    make clean
+    make
+
+%runscript
+#    python3 -c 'print("Hello World! Hello from our custom Singularity image!")'
