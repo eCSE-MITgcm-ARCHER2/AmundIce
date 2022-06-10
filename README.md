@@ -15,3 +15,6 @@ This was built following the guidance at https://github.com/ARCHER2-HPC/pe-scrip
 The build for the eCSE project is at:
 export MY_PETSC_DIR=/work/n02/shared/mjmn02/AmundIce/TPSL/GNU
 For associated scripts, see the ecse-scripts directory in this repository
+
+## OpenAD
+HowToInstall.md gives guidance including on use of the containerised OpenAD.  Thhe definition of the containier is held in test.def.
